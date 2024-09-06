@@ -46,12 +46,11 @@ class movie_scraper:
         contextual_summary= pipe(raw_summary,min_length=150,max_length=250)
         #contextual_summary = str(contextual_summary).replace(f"\\","")
         return contextual_summary
-
+'''
 name="vedalam"
 obj=movie_scraper(name)
 info=obj.get_movie_info()
 print(info)
-'''
 id=info['imdbID']
 reviews= obj.get_movie_reviews(id)
 #print(reviews)
