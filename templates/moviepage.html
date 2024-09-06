@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Information</title>
+    <style>/* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 40px;
+        }
+        
+        /* Movie Container */
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .movie {
+            flex: 1;
+            margin-left: 25px;
+        }
+        
+        .movie h1 {
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        /* Poster Styles */
+        .poster {
+            flex: 0 0 300px;
+        }
+        
+        .poster img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Movie Info Section */
+        .movie-info {
+            flex: 2;
+        }
+        
+        .movie-info h4 {
+            font-size: 1.5rem;
+            color: #444;
+            margin-bottom: 15px;
+            margin-left: 30px;
+            border-bottom: 2px solid #ff6347;
+            padding-bottom: 5px;
+        }
+        
+        .movie-info p {
+            font-size: 1.1rem;
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .movie-info p strong {
+            color: #ff6347;
+            /*margin-left: 20px;*/
+            font-weight: bold;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+        
+            .poster {
+                margin-bottom: 20px;
+            }
+        
+            .movie h1 {
+                font-size: 2rem;
+            }
+        
+            .movie-info h4 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Poster Section -->
+        <div class="poster">
+            <img src="{{ poster }}" alt="{{ movie.Title }} poster">
+        </div>
+
+        <!-- Movie Info Section -->
+        <div class="movie-info">
+            <div class="movie">
+                <h1>{{ movie['Title'] }}</h1>
+            </div>
+            <h4>Movie Summary:</h4>
+            <p>{{summary}}</p>
+            <p><strong>Released:</strong> {{ movie['Released'] }}</p>
+            <p><strong>Director:</strong> {{ movie['Director'] }}</p>
+            <p><strong>Plot:</strong> {{ movie['Plot'] }}</p>
+            <p><strong>IMDb Rating:</strong> {{ movie['imdbRating'] }}</p>
+            <p><strong>Genre:</strong> {{ movie['Genre'] }}</p>
+            <p><strong>Cast:</strong> {{ movie['Actors'] }}</p>
+            <p><strong>Awards and Nominees:</strong> {{ movie['Awards']}}</p>
+            <p><strong>Runtime:</strong> {{ movie['Runtime']}}</p>
+
+        </div>
+    </div>
+</body>
+</html>
