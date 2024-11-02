@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import movie_scraper
 app = Flask(__name__)
 
@@ -13,8 +13,10 @@ def search_movie():
     print(f"Received movie name: {movie_name}")
     scraper = movie_scraper.movie_scraper(movie_name)
     info = scraper.get_movie_info()
+    print("Got the movie info..")
     id=info['imdbID']
     reviews=scraper.get_movie_reviews(id)
+    print("Scraped the reviews..")
     summary=str(scraper.contextualize_summary(reviews)[0]['summary_text'])
 
     poster=info['Poster']
